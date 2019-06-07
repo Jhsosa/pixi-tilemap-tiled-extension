@@ -1,6 +1,6 @@
-import TileSet from './TileSet';
+import TileSet from "./TileSet";
 
-export default class Tile extends PIXI.extras.AnimatedSprite {
+export default class Tile {
   private static getTextures(tile: ITileData, tileSet: TileSet) {
     const textures = [];
 
@@ -16,13 +16,13 @@ export default class Tile extends PIXI.extras.AnimatedSprite {
   }
 
   public animations: IAnimation[] = [];
+  public animationSpeed: number = 0;
   public gid: number = 0;
-  // tslint:disable-next-line:variable-name
-  public _x: number = 0;
-  // tslint:disable-next-line:variable-name
-  public _y: number = 0;
+  public x: number = 0;
+  public y: number = 0;
   public tile: ITileData;
   public tileSet: TileSet;
+  public textures: PIXI.Texture[];
   public horizontalFlip: boolean;
   public verticalFlip: boolean;
   public diagonalFlip: boolean;
@@ -32,11 +32,8 @@ export default class Tile extends PIXI.extras.AnimatedSprite {
     tileSet: TileSet,
     horizontalFlip: boolean,
     verticalFlip: boolean,
-    diagonalFlip: boolean,
+    diagonalFlip: boolean
   ) {
-
-    super(Tile.getTextures(tile, tileSet));
-
     this.textures = Tile.getTextures(tile, tileSet);
     this.tile = tile;
     this.tileSet = tileSet;
@@ -49,34 +46,39 @@ export default class Tile extends PIXI.extras.AnimatedSprite {
     this.flip();
   }
 
+  public gotoAndPlay(frame: number) {
+    console.log("gotoAndPlay is not implemented " + frame);
+  }
+
   private flip() {
-    if (this.horizontalFlip) {
-      this.anchor.x = 1;
-      this.scale.x = -1;
-    }
+    console.log("Flip is not implemented");
+    // if (this.horizontalFlip) {
+    //   this.anchor.x = 1;
+    //   this.scale.x = -1;
+    // }
 
-    if (this.verticalFlip) {
-      this.anchor.y = 1;
-      this.scale.y = -1;
-    }
+    // if (this.verticalFlip) {
+    //   this.anchor.y = 1;
+    //   this.scale.y = -1;
+    // }
 
-    if (this.diagonalFlip) {
-      if (this.horizontalFlip) {
-        this.anchor.x = 0;
-        this.scale.x = 1;
-        this.anchor.y = 1;
-        this.scale.y = 1;
+    // if (this.diagonalFlip) {
+    //   if (this.horizontalFlip) {
+    //     this.anchor.x = 0;
+    //     this.scale.x = 1;
+    //     this.anchor.y = 1;
+    //     this.scale.y = 1;
 
-        this.rotation = PIXI.DEG_TO_RAD * 90;
-      }
-      if (this.verticalFlip) {
-        this.anchor.x = 1;
-        this.scale.x = 1;
-        this.anchor.y = 0;
-        this.scale.y = 1;
+    //     this.rotation = PIXI.DEG_TO_RAD * 90;
+    //   }
+    //   if (this.verticalFlip) {
+    //     this.anchor.x = 1;
+    //     this.scale.x = 1;
+    //     this.anchor.y = 0;
+    //     this.scale.y = 1;
 
-        this.rotation = PIXI.DEG_TO_RAD * -90;
-      }
-    }
+    //     this.rotation = PIXI.DEG_TO_RAD * -90;
+    //   }
+    // }
   }
 }

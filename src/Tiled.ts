@@ -5,7 +5,7 @@ import ImageLayer from './ImageLayer';
 import TileLayer from './TileLayer';
 import TileSet from './TileSet';
 
-export class TiledMap extends PIXI.Container {
+export class Tiled extends PIXI.Container {
 
   public resourceUrl: string;
   public tileSets: TileSet[] = [];

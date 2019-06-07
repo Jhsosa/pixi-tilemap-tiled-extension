@@ -914,7 +914,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.7.tgz#85dbb71c510442d00c0631f99dae957ce44fd104"
   integrity sha512-suFHr6hcA9mp8vFrZTgrmqW2ZU3mbWsryQtQlY/QvwTISCw7nw/j+bCQPPohqmskhmqa5wLNuMHTTsc+xf1MQg==
 
-"@types/pixi.js@^4.8.7":
+"@types/pixi.js@^4.8.0", "@types/pixi.js@^4.8.7":
   version "4.8.7"
   resolved "https://registry.yarnpkg.com/@types/pixi.js/-/pixi.js-4.8.7.tgz#23cea9ce7aaf6a51223a8fbe3c3d1c89f6048698"
   integrity sha512-SuaeAVDWNbvVzg+ipVrNzVxMDZHaa/MRNT/+Y270sYp/qxfB31KC1wEt7KDVNq9Ac/pRdSDrxVDcLDUaYn0aVg==
@@ -4328,6 +4328,13 @@ pixi-gl-core@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/pixi-gl-core/-/pixi-gl-core-1.1.4.tgz#8b4b5c433b31e419bc379dc565ce1b835a91b372"
   integrity sha1-i0tcQzsx5Bm8N53FZc4bg1qRs3I=
+
+pixi-tilemap@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/pixi-tilemap/-/pixi-tilemap-1.2.4.tgz#a97fb236526221e0d6d773831535ec15dc1d1026"
+  integrity sha512-WW9tMsPCDH0Rd9nNByBQ/GB5jpxtH17rtWvEndxKriht9IOfEFb/BjQS5GDHnYIydXzVl6HcArdQRYJ0HG0ejQ==
+  dependencies:
+    "@types/pixi.js" "^4.8.0"
 
 pixi.js@^4.8.7:
   version "4.8.7"

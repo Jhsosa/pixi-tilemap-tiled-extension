@@ -1,32 +1,31 @@
 {
-  "name": "pixi-tiledmap",
+  "name": "pixi-tilemap-tiled-extension",
   "version": "1.10.1",
-  "description": "Pixi.js Tiled map editor plugin",
+  "description": "Pixi.js Tiled map editor plugin using pixi-tilemap",
   "keywords": [
     "pixi",
     "pixi.js",
     "tiled",
     "tilemap",
-    "tiledmap",
     "tmx"
   ],
   "author": "Hagen Sommerkorn",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/riebel/pixi-tiledmap.git"
+    "url": "git+https://github.com/jhsosa/pixi-tilemap-tiled-extension.git"
   },
   "license": "MIT",
-  "main": "dist/pixi-tiledmap.js",
-  "types": "dist/pixi-tiledmap.d.ts",
+  "main": "dist/pixi-tilemap-tiled-extension.js",
+  "types": "dist/pixi-tilemap-tiled-extension.d.ts",
   "scripts": {
     "start": "webpack-dev-server -d",
     "build": "tsc --declaration && webpack -p && typedoc --out docs",
     "lint": "tslint --project ./tsconfig.json"
   },
   "bugs": {
-    "url": "https://github.com/riebel/pixi-tiledmap/issues"
+    "url": "https://github.com/jhsosa/pixi-tilemap-tiled-extension/issues"
   },
-  "homepage": "https://github.com/riebel/pixi-tiledmap#readme",
+  "homepage": "https://github.com/jhsosa/pixi-tilemap-tiled-extension#readme",
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
@@ -53,6 +52,8 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "pixi-filters": "^3.0.3",
+    "pixi-tilemap": "^1.2.4",
     "tmx-parser": "^1.5.0"
   },
   "registry": "npm"

@@ -1,8 +1,8 @@
-import Tile from './Tile';
-import TileSet from './TileSet';
+import "pixi-tilemap";
+import Tile from "./Tile";
+import TileSet from "./TileSet";
 
-export default class TileLayer extends PIXI.Container {
-
+export default class TileLayer extends PIXI.tilemap.CompositeRectTileLayer {
   private static findTileSet(gid: number, tileSets: TileSet[]) {
     let tileset;
     for (let i = tileSets.length - 1; i >= 0; i--) {
@@ -23,7 +23,6 @@ export default class TileLayer extends PIXI.Container {
 
     this.layer = layer;
     this.tileSets = tileSets;
-    this.alpha = layer.opacity;
     this.tiles = [];
 
     Object.assign(this, layer);
@@ -34,11 +33,17 @@ export default class TileLayer extends PIXI.Container {
   public create() {
     for (let y = 0; y < this.layer.map.height; y++) {
       for (let x = 0; x < this.layer.map.width; x++) {
-        const i = x + (y * this.layer.map.width);
+        const i = x + y * this.layer.map.width;
 
-        if (this.layer.tiles[i] && this.layer.tiles[i].gid && this.layer.tiles[i].gid !== 0) {
-
-          const tileset = TileLayer.findTileSet(this.layer.tiles[i].gid, this.tileSets);
+        if (
+          this.layer.tiles[i] &&
+          this.layer.tiles[i].gid &&
+          this.layer.tiles[i].gid !== 0
+        ) {
+          const tileset = TileLayer.findTileSet(
+            this.layer.tiles[i].gid,
+            this.tileSets
+          );
 
           if (tileset) {
             const tile = new Tile(
@@ -46,15 +51,14 @@ export default class TileLayer extends PIXI.Container {
               tileset,
               this.layer.horizontalFlips[i],
               this.layer.verticalFlips[i],
-              this.layer.diagonalFlips[i],
+              this.layer.diagonalFlips[i]
             );
 
             tile.x = x * this.layer.map.tileWidth;
-            tile.y = y * this.layer.map.tileHeight +
-              (this.layer.map.tileHeight - (tile.textures[0] as PIXI.Texture).height);
-
-            tile._x = x;
-            tile._y = y;
+            tile.y =
+              y * this.layer.map.tileHeight +
+              (this.layer.map.tileHeight -
+                (tile.textures[0] as PIXI.Texture).height);
 
             if (tileset.tileOffset) {
               tile.x += tileset.tileOffset.x;
@@ -67,8 +71,7 @@ export default class TileLayer extends PIXI.Container {
             }
 
             this.tiles.push(tile);
-
-            this.addChild(tile);
+            this.addFrame(tile.textures[0] as PIXI.Texture, tile.x, tile.y);
           }
         }
       }

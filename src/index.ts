@@ -1,10 +1,10 @@
-import { TiledMap } from './TiledMap';
-import tiledMapLoader from './tiledMapLoader';
+import { Tiled } from "./Tiled";
+import tiledMapLoader from "./tiledMapLoader";
 
 declare global {
-  namespace PIXI.extras {
-    interface ITiledMap {
-      TiledMap: TiledMap;
+  namespace PIXI.tilemap {
+    interface ITiled {
+      Tiled: Tiled;
     }
   }
 }
@@ -12,6 +12,6 @@ declare global {
 PIXI.loaders.Loader.addPixiMiddleware(tiledMapLoader);
 PIXI.loader.use(tiledMapLoader.call(PIXI.loader));
 
-Object.assign(PIXI.extras, { TiledMap });
+Object.assign(PIXI.tilemap, { Tiled });
 
-export default TiledMap;
+export default Tiled;

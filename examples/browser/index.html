@@ -19,10 +19,10 @@
             .add('assets/01_basement.tmx')
             .load(function () {
                     /**
-                     *   PIXI.extras.TiledMap() is an extended PIXI.Container()
+                     *   PIXI.tilemap.Tiled() is an extended PIXI.Container()
                      *   so you can render it right away
                      */
-                    let tileMap = new PIXI.extras.TiledMap('assets/01_basement.tmx');
+                    let tileMap = new PIXI.tilemap.Tiled('assets/01_basement.tmx');
                     renderer.render(tileMap);
                 }
             );
